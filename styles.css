@@ -1,0 +1,181 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 20px 0;
+    color: #444;
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Section */
+.section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    color: #007BFF;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+.sentence-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+.sentence-actions label {
+    margin-left: 0;
+    margin-top: 10px;
+}
+
+.btn {
+    background-color: #007BFF;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: auto;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: #007BFF;
+    font-size: 1em;
+    cursor: pointer;
+    transition: color 0.3s;
+    margin: 0 15px;
+}
+
+.nav-btn:hover {
+    color: #0056b3;
+}
+
+/* Disabled Navigation Button Style */
+.nav-btn:disabled {
+    color: #a0a0a0; /* A light gray color to indicate disabled state */
+    cursor: not-allowed; /* Change cursor to indicate the button is not clickable */
+    pointer-events: none; /* Prevent any interaction with the disabled button */
+    opacity: 0.6; /* Reduce opacity to visually indicate the disabled state */
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Translation Style */
+#translation {
+    color: #888; /* Light gray color for the translation */
+    font-style: italic; /* Makes the translation italic for better distinction */
+    margin-top: 10px; /* Adds some space above the translation */
+}
+
+/* Notes Section */
+textarea {
+    width: 100%; /* Make sure the width is 100% of the container */
+    box-sizing: border-box; /* Include padding and border in the element's width */
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    background-color: #f8f9fa;
+    font-size: 1em;
+    resize: vertical; /* Allow resizing only vertically */
+}
+
+
+/* History Section */
+.history-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 20px auto;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+}
+
+.history-section h2 {
+    color: #007BFF;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+.history-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.history-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+}
+
+.history-item input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .sentence-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navigation-buttons {
+        flex-direction: column;
+    }
+
+    .history-section {
+        padding: 15px;
+    }
+}

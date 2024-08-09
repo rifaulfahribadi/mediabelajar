@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rifa Daily Learning</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Rifa Daily Learning</h1>
+    
+    <div class="container">
+        <div class="section">
+            <h2>One day One Sentence</h2>
+            <div id="current-sentence" class="sentence-item">
+                <p id="sentence-text"></p>
+                <p id="translation" style="display:none;"></p>
+                <div class="sentence-actions">
+                    <button id="hint-button" class="btn">Show Translation</button>
+                    <label>
+                        <input type="checkbox" id="mastery-checkbox"> I have mastered this sentence
+                    </label>
+                </div>
+            </div>
+            <div class="navigation-buttons">
+                <button id="prev-button" class="nav-btn">← Previous</button>
+                <button id="next-button" class="nav-btn">Next →</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Personal Notes</h2>
+            <textarea id="notes-text" rows="4" cols="50" placeholder="Add your notes"></textarea>
+            <button id="save-notes-button" class="btn">Save Notes</button>
+        </div>
+    </div>
+
+    <div class="history-section">
+        <h2>Achievements</h2>
+        <ul id="history-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
