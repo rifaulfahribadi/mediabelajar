@@ -1,4 +1,4 @@
-// Example sentences database
+// Example sentences database ya
 const sentences = [
     { id: 1, text: "The product launch is scheduled for next week.", translation: "Peluncuran produk dijadwalkan untuk minggu depan.", notes: "" },
     { id: 2, text: "We need to negotiate the contract terms.", translation: "Kita perlu menegosiasikan syarat-syarat kontrak.", notes: "" },
