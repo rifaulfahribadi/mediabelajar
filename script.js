@@ -106,16 +106,18 @@ const sentences = [
 let currentSentenceIndex = 0;
 let history = [];
 
-// Initialize notes from localStorage if available
-function loadNotesFromStorage() {
-    const savedNotes = JSON.parse(localStorage.getItem('sentenceNotes'));
-    if (savedNotes) {
-        sentences.forEach(sentence => {
-            if (savedNotes[sentence.id]) {
-                sentence.notes = savedNotes[sentence.id];
-            }
-        });
-    }
+// Initialize notes and history from localStorage if available
+function loadNotesAndHistoryFromStorage() {
+    const savedNotes = JSON.parse(localStorage.getItem('sentenceNotes')) || {};
+    const savedHistory = JSON.parse(localStorage.getItem('sentenceHistory')) || [];
+    
+    sentences.forEach(sentence => {
+        if (savedNotes[sentence.id]) {
+            sentence.notes = savedNotes[sentence.id];
+        }
+    });
+    
+    history = savedHistory.map(id => sentences.find(sentence => sentence.id === id));
 }
 
 // Save notes to localStorage
@@ -125,6 +127,12 @@ function saveNotesToStorage() {
         notesData[sentence.id] = sentence.notes;
     });
     localStorage.setItem('sentenceNotes', JSON.stringify(notesData));
+}
+
+// Save history to localStorage
+function saveHistoryToStorage() {
+    const historyData = history.map(sentence => sentence.id);
+    localStorage.setItem('sentenceHistory', JSON.stringify(historyData));
 }
 
 const sentenceText = document.getElementById('sentence-text');
@@ -170,12 +178,14 @@ hintButton.addEventListener('click', () => {
 masteryCheckbox.addEventListener('change', () => {
     const sentence = sentences[currentSentenceIndex];
     if (masteryCheckbox.checked) {
-        history.push(sentence);
-        renderHistory();
+        if (!history.some(item => item.id === sentence.id)) {
+            history.push(sentence);
+        }
     } else {
         history = history.filter(item => item.id !== sentence.id);
-        renderHistory();
     }
+    renderHistory();
+    saveHistoryToStorage(); // Save history to localStorage
 });
 
 // Event listener for save notes button
@@ -202,6 +212,7 @@ function renderHistory() {
             history = history.filter(item => item.id !== sentence.id);
             renderHistory();
             loadSentence(); // Reload sentence to update mastery status
+            saveHistoryToStorage(); // Save updated history to localStorage
         });
         
         listItem.prepend(uncheckBox);
@@ -225,8 +236,9 @@ prevButton.addEventListener('click', () => {
     }
 });
 
-// Load notes from localStorage if available on page load
-loadNotesFromStorage();
+// Load notes and history from localStorage if available on page load
+loadNotesAndHistoryFromStorage();
 
 // Initial load
 loadSentence();
+renderHistory(); // Render history on initial load
