@@ -86,18 +86,20 @@ h1 {
     color: #0056b3;
 }
 
-/* Disabled Navigation Button Style */
 .nav-btn:disabled {
-    color: #a0a0a0; /* A light gray color to indicate disabled state */
+    color: #a0a0a0; /* Light gray color to indicate disabled state */
     cursor: not-allowed; /* Change cursor to indicate the button is not clickable */
     pointer-events: none; /* Prevent any interaction with the disabled button */
     opacity: 0.6; /* Reduce opacity to visually indicate the disabled state */
 }
 
+/* Navigation Buttons */
 .navigation-buttons {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    flex-wrap: nowrap; /* Ensure that buttons stay on the same line */
+    gap: 20px; /* Adds some space between the buttons */
 }
 
 /* Translation Style */
@@ -119,7 +121,6 @@ textarea {
     font-size: 1em;
     resize: vertical; /* Allow resizing only vertically */
 }
-
 
 /* History Section */
 .history-section {
@@ -172,7 +173,12 @@ textarea {
     }
 
     .navigation-buttons {
-        flex-direction: column;
+        flex-wrap: wrap; /* Allow buttons to wrap if necessary on very small screens */
+        gap: 10px; /* Reduce gap between buttons for smaller screens */
+    }
+
+    .nav-btn {
+        font-size: 0.9em; /* Slightly smaller text size for smaller screens */
     }
 
     .history-section {
