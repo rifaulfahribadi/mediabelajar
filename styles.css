@@ -25,7 +25,7 @@ h1 {
     margin: auto;
 }
 
-/* Section oi */
+/* Section */
 .section {
     background-color: #ffffff;
     padding: 20px;
@@ -43,17 +43,31 @@ h1 {
     margin-bottom: 15px;
 }
 
+/* Sentence Actions */
 .sentence-actions {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 10px;
+    flex-direction: column; /* Stack button and label vertically */
+    align-items: flex-start; /* Align items to the left */
+    margin-top: 10px; /* Space above the actions */
 }
 
-.sentence-actions label {
-    margin-left: 15px;
+#mastery-label {
+    margin-top: 10px; /* Space between button and checkbox label */
 }
 
+/* Translation Text */
+#translation {
+    color: #888; /* Use a lighter gray color for the translation text */
+    font-style: italic; /* Make the translation text italic */
+}
+
+/* Style when translation is visible */
+.translation-visible #translation {
+    color: #888; /* Keep the same lighter gray color when visible */
+    font-style: italic; /* Ensure it stays italic when visible */
+}
+
+/* Button Styles */
 .btn {
     background-color: #007BFF;
     color: #ffffff;
@@ -78,7 +92,6 @@ h1 {
     cursor: pointer;
     transition: color 0.3s;
     margin: 0 15px;
-    white-space: nowrap;
 }
 
 .nav-btn:hover {
@@ -87,28 +100,28 @@ h1 {
 
 .navigation-buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 20px;
-    width: 100%;
+}
+/* Disabled Button Style */
+.nav-btn:disabled {
+    color: #ccc; /* Set the text color to a light gray */
+    cursor: not-allowed; /* Change cursor to indicate disabled state */
+    opacity: 0.6; /* Reduce opacity to show disabled state */
 }
 
-.navigation-buttons .nav-btn:first-child {
-    margin-right: auto;
-}
-
-.navigation-buttons .nav-btn:last-child {
-    margin-left: auto;
-}
 
 /* Notes Section */
 textarea {
-    width: 100%;
+    width: 100%; /* Ensure the textarea takes full width of its container */
+    max-width: 100%; /* Prevent the textarea from exceeding the container's width */
     padding: 15px;
     border-radius: 6px;
     border: 1px solid #ddd;
     margin-bottom: 20px;
     background-color: #f8f9fa;
     font-size: 1em;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 /* History Section */
@@ -157,14 +170,15 @@ textarea {
     }
 
     .sentence-actions {
-        flex-direction: column;
-        align-items: flex-start;
+        align-items: center; /* Center items on small screens */
+    }
+
+    #mastery-label {
+        margin-top: 10px; /* Keep the spacing consistent */
     }
 
     .navigation-buttons {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
     }
 
     .history-section {
