@@ -111,7 +111,7 @@ h1 {
 }
 
 
-/* Notes Section */
+/* Notes Section Text Area */
 textarea {
     width: 100%; /* Ensure the textarea takes full width of its container */
     max-width: 100%; /* Prevent the textarea from exceeding the container's width */
