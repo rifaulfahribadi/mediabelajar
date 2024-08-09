@@ -45,15 +45,13 @@ h1 {
 
 .sentence-actions {
     display: flex;
-    flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     margin-top: 10px;
 }
 
 .sentence-actions label {
-    margin-left: 0;
-    margin-top: 10px;
+    margin-left: 15px;
 }
 
 .btn {
@@ -80,46 +78,37 @@ h1 {
     cursor: pointer;
     transition: color 0.3s;
     margin: 0 15px;
+    white-space: nowrap;
 }
 
 .nav-btn:hover {
     color: #0056b3;
 }
 
-.nav-btn:disabled {
-    color: #a0a0a0; /* Light gray color to indicate disabled state */
-    cursor: not-allowed; /* Change cursor to indicate the button is not clickable */
-    pointer-events: none; /* Prevent any interaction with the disabled button */
-    opacity: 0.6; /* Reduce opacity to visually indicate the disabled state */
-}
-
-/* Navigation Buttons */
 .navigation-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 20px;
-    flex-wrap: nowrap; /* Ensure that buttons stay on the same line */
-    gap: 20px; /* Adds some space between the buttons */
+    width: 100%;
 }
 
-/* Translation Style */
-#translation {
-    color: #888; /* Light gray color for the translation */
-    font-style: italic; /* Makes the translation italic for better distinction */
-    margin-top: 10px; /* Adds some space above the translation */
+.navigation-buttons .nav-btn:first-child {
+    margin-right: auto;
+}
+
+.navigation-buttons .nav-btn:last-child {
+    margin-left: auto;
 }
 
 /* Notes Section */
 textarea {
-    width: 100%; /* Make sure the width is 100% of the container */
-    box-sizing: border-box; /* Include padding and border in the element's width */
+    width: 100%;
     padding: 15px;
     border-radius: 6px;
     border: 1px solid #ddd;
     margin-bottom: 20px;
     background-color: #f8f9fa;
     font-size: 1em;
-    resize: vertical; /* Allow resizing only vertically */
 }
 
 /* History Section */
@@ -173,12 +162,9 @@ textarea {
     }
 
     .navigation-buttons {
-        flex-wrap: wrap; /* Allow buttons to wrap if necessary on very small screens */
-        gap: 10px; /* Reduce gap between buttons for smaller screens */
-    }
-
-    .nav-btn {
-        font-size: 0.9em; /* Slightly smaller text size for smaller screens */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .history-section {
